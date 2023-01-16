@@ -58,22 +58,31 @@ const playable6 = false ;
 const favorite6 = true ; 
 const affiliation6 = ["Haravatat", "Sumeru Akademiya"]
 
-const avarageRarity = (5*4+2*0)/6;
-console.log(avarageRarity);
+const avarageRarity = (rarity1 + rarity2 + rarity3 + rarity4 + rarity5 + rarity6)/6;
+console.log(avarageRarity.toFixed(2));
 
-const avarageVision = (5*2+4+2*0+7)/6;
+const avarageVision = (vision1 + vision2 + vision3 + vision4 + vision5 + vision6)/6;
 console.log(avarageVision);
 
-const checkPlayable = playable1 && playable2 && playable3 && playable4 && playable5 && playable6
+const checkPlayable = playable1 
+    && playable2 
+    && playable3 
+    && playable4 
+    && playable5 
+    && playable6
 console.log(checkPlayable);
 
-const checkFavorite = favorite1 && favorite2 && favorite3 && favorite4 && favorite5 && favorite6
+const checkFavorite = favorite1 
+    && favorite2 
+    && favorite3
+    && favorite4 
+    && favorite5 
+    && favorite6
 console.log(checkFavorite);
 
         
-    function report(char,rarity,vision,region,weapon,playable,favorite, affiliation) {
-        console.log(`
-characterName:"${char}",
+function report(char,rarity,vision,region,weapon,playable,favorite, affiliation) {
+        console.log(`${char.toUpperCase()},
 rarity: ${rarity},
 vision: ${vision},
 region: "${region}",
@@ -83,9 +92,9 @@ favorite: ${favorite},
 affiliation: ${affiliation.join(", ")}.`)
     }
 
-report(characterName1,rarity1,vision1,region1,weapon1,playable1,favorite1,affiliation1)
-report(characterName2,rarity2,vision2,region2,weapon2,playable2,favorite2,affiliation2)
-report(characterName3,rarity3,vision3,region3,weapon3,playable3,favorite3,affiliation3)
-report(characterName4,rarity4,vision4,region4,weapon4,playable4,favorite4,affiliation4)
-report(characterName5,rarity5,vision5,region5,weapon5,playable5,favorite5,affiliation5)
-report(characterName6,rarity6,vision6,region6,weapon6,playable6,favorite6,affiliation6)
+report(characterName1, rarity1, vision1, region1, weapon1, playable1, favorite1, affiliation1)
+report(characterName2, rarity2, vision2, region2, weapon2, playable2, favorite2, affiliation2)
+report(characterName3, rarity3, vision3, region3, weapon3, playable3, favorite3, affiliation3)
+report(characterName4, rarity4, vision4, region4, weapon4, playable4, favorite4, affiliation4)
+report(characterName5, rarity5, vision5, region5, weapon5, playable5, favorite5, affiliation5)
+report(characterName6, rarity6, vision6, region6, weapon6, playable6, favorite6, affiliation6)
