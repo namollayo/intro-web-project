@@ -1,4 +1,5 @@
-let character1 = {
+let arrayOfCharacters = [
+character1 = {
     characterName:"Kamisato Ayato",
     rarity: 5,
     vision: 5,
@@ -6,10 +7,10 @@ let character1 = {
     weapon: "Sword",
     playable: true,
     favorite: true,
-    ffiliation: ["Yashiro Commission", "Kamisato Clan", "Shuumatsuban"]
-}
+    affiliation: ["Yashiro Commission", "Kamisato Clan", "Shuumatsuban"]
+},
 
-let character2 = { 
+character2 = { 
     characterName:"Zhongli",
     rarity: 5,
     vision: 4,
@@ -19,9 +20,9 @@ let character2 = {
     favorite: true,
     affiliation: ["Liyue Harbor", "Wangsheng Funeral Parlor", "The Seven", "Adepti"]
 
-}
+},
 
-let character3 = {
+character3 = {
     characterName:"Tartaglia",
     rarity: 5,
     vision: 5,
@@ -30,9 +31,9 @@ let character3 = {
     playable: true,
     favorite: true,
     affiliation: ["Fatui", "Eleven Fatui Harbingers"]
-}
+},
 
-let character4 = {
+character4 = {
     characterName:"Dainsleif",
     rarity: 0,
     vision: 0,
@@ -41,10 +42,10 @@ let character4 = {
     playable: false,
     favorite: true,
     affiliation: ["Eclipse Dynasty"]
-}
+},
 
-let character5 = { 
-    characterName: "Il Dottore",
+character5 = { 
+    characterName: "Dottore",
     rarity: 0,
     vision: 0,
     region: "Snezhnaya",
@@ -52,9 +53,9 @@ let character5 = {
     playable: false,
     favorite: true,
     affiliation: ["Fatui", "Eleven Fatui Harbingers", "Sumeru Akademiya (formely)"]
-}
+},
 
-let character6 = {
+character6 = {
     characterName:"Alhaitham",
     rarity: 5,
     vision: 7,
@@ -63,11 +64,85 @@ let character6 = {
     playable: false,
     favorite: true,
     affiliation: ["Haravatat", "Sumeru Akademiya"]
+} ]
+
+// SEMANA III
+// 1.
+// Option: Fuction to format the property in Array to String. 
+
+let affiliationString ;
+
+const arrayToString = (affiliation) => {
+  affiliationString = "";
+  for (i = 0; i < affiliation.length; i++) {
+    if (i !== affiliation.length - 1) {
+      affiliationString += affiliation[i] + ", ";
+    } else {
+      affiliationString += affiliation[i] + ".";
+    }
+  }
+  return affiliationString;
+};
+
+
+// 2.
+
+let character7 = { 
+    characterName:"Wanderer",
+    rarity: 5,
+    vision: 1,
+    region: "Sumeru",
+    weapon: "Catalyst",
+    playable: true,
+    favorite: true,
+    affiliation: ["None"]
 }
 
-console.log(character1);
-console.log(character2);
-console.log(character3);
-console.log(character4);
-console.log(character5);
-console.log(character6);
+arrayOfCharacters.push(character7)
+
+const objectData = (character) => {
+    for (property in character) {
+        if (isPropertyCharacterName(property)) {
+            console.log(character["characterName"].toUpperCase());
+        } else if (property === "affiliation") {
+            console.log(`${property}: ` + arrayToString(character[property]));
+        } else {
+            console.log(`${property}: ` + character[property]);
+        }
+    }
+} 
+
+// for (character of arrayOfCharacters) {
+//     objectData(character)
+//     console.log("\n \n");
+// }
+
+function isPropertyCharacterName(property) {
+    return property === "characterName" ? true : false
+}
+
+// 3.
+
+const objectReport = (character) => {
+    objectData(character)
+}
+
+objectReport(character7)
+
+// 4.
+
+function search(arrayOfCharacters, inputName) { 
+    let result 
+    for (character of arrayOfCharacters) {
+        if (character.characterName.toUpperCase() == inputName.toUpperCase().trim()) {
+            result = character
+        }
+    }
+    if (!result) {
+        alert(inputName + " is not available yet");
+    }
+    return result
+}
+search(arrayOfCharacters, "ayato")
+
+
