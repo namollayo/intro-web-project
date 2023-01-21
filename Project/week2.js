@@ -76,34 +76,26 @@ let character6 = {
 
 const arrayOfCharacters = []
 
-// arrayOfCharacters.push(character1);
-// arrayOfCharacters.push(character2);
-// arrayOfCharacters.push(character3);
-// arrayOfCharacters.push(character4);
-// arrayOfCharacters.push(character5);
-// arrayOfCharacters.push(character6);
+arrayOfCharacters.push(character1, character2, character3, character4, character5, character6);
+
 
 // console.log(arrayOfCharacters);
 
+const arrayOfPlayableCharacters = []
+
 const checkBoolean = (char) => {
-    if (char.playable === true){
-        arrayOfCharacters.push(char)
+    for (characterTest of char) {
+        
+    if (characterTest.playable === true){
+        arrayOfPlayableCharacters.push(characterTest)
     } else {
-        alert(`${char.characterName} is still not playable, so it won't be added to the array`)
+        alert(`${characterTest.characterName} is still not playable, so it won't be added to the array`)
     }
 }
-
-function insertToArray() {   
-    checkBoolean(character1)
-    checkBoolean(character2)
-    checkBoolean(character3)
-    checkBoolean(character4)
-    checkBoolean(character5)
-    checkBoolean(character6)
-
-    console.log(arrayOfCharacters);
 }
+checkBoolean(arrayOfCharacters)
+console.log(arrayOfCharacters);
+console.log(arrayOfPlayableCharacters);
 
-insertToArray()
 
 
