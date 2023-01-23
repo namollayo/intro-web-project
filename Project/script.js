@@ -5,6 +5,7 @@ const GEO = 4;
 const HYDRO = 5;
 const PYRO = 6;
 const DENDRO = 7;
+const ENTER_KEY = 13
 
 let arrayOfCharacters = [
 {   characterName:"Kamisato Ayato",
@@ -245,7 +246,6 @@ const createCharacterListCards = (array) => {
     }   
 }
 
-createCharacterListCards(arrayOfCharacters)
 
 function isSearchBarEmpty(userInput) {
     if (userInput == "" || userInput == undefined) {
@@ -273,7 +273,7 @@ function writtenSearch(event) {
 
 function writtenSearchEnter(event) {
 
-    if (event.keyCode === 13) {
+    if (event.keyCode === ENTER_KEY) {
         writtenSearch(event)
     }    
 }
@@ -288,3 +288,8 @@ function elementSearch(event) {
     createCharacterListCards(result)
 }
 
+function onInit() {
+    createCharacterListCards(arrayOfCharacters)
+}
+
+onInit()
